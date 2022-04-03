@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>MybatisStudy | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/2/index.html">
+  <meta name="description" content="使用Map代替传统类如果我们的实体类中的属性过于多，那么要写很多东西，并且要与数据库名称一一对应，但我们可以使用 map ，在map中插入我们需要的东西，然后传入map即可，比如我们只用use中的id和name，那么我们就可以只用map将这两个属性传入即可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MybatisStudy">
+<meta property="og:url" content="http://example.com/2022/03/31/MybatisStudy/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用Map代替传统类如果我们的实体类中的属性过于多，那么要写很多东西，并且要与数据库名称一一对应，但我们可以使用 map ，在map中插入我们需要的东西，然后传入map即可，比如我们只用use中的id和name，那么我们就可以只用map将这两个属性传入即可">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-31T07:36:07.000Z">
+<meta property="article:modified_time" content="2022-04-03T14:12:46.110Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,34 +154,132 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-链表删去所有重复元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-MybatisStudy" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/08/%E9%93%BE%E8%A1%A8%E5%88%A0%E5%8E%BB%E6%89%80%E6%9C%89%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/">链表删去所有重复元素</a>
+    <h1 class="article-title" itemprop="name">
+      MybatisStudy
     </h1>
   
 
         
-        <a href="/2022/03/08/%E9%93%BE%E8%A1%A8%E5%88%A0%E5%8E%BB%E6%89%80%E6%9C%89%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/" class="archive-article-date">
-  	<time datetime="2022-03-08T10:10:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-08</time>
+        <a href="/2022/03/31/MybatisStudy/" class="archive-article-date">
+  	<time datetime="2022-03-31T07:36:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>给一个链表，去除所有重复元素，例如：1–&gt; 2 –&gt; 2 –&gt; 3 –&gt; 3 –&gt; 4，返回1 –&gt; 4。</p>
-        
-          <a class="article-more-a" href="/2022/03/08/%E9%93%BE%E8%A1%A8%E5%88%A0%E5%8E%BB%E6%89%80%E6%9C%89%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/#more">more >></a>
-        
+        <h3 id="使用Map代替传统类"><a href="#使用Map代替传统类" class="headerlink" title="使用Map代替传统类"></a>使用Map代替传统类</h3><p>如果我们的实体类中的属性过于多，那么要写很多东西，并且要与数据库名称一一对应，但我们可以使用 map ，在map中插入我们需要的东西，然后传入map即可，比如我们只用use中的id和name，那么我们就可以只用map将这两个属性传入即可</p>
+<span id="more"></span>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectUse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    SqlSession sqlSession = MybatisUtils.getSqlSession();	</span><br><span class="line">    UseMapper useMapper = sqlSession.getMapper(UseMapper.class);</span><br><span class="line">    Map&lt;String , Object&gt; mp = <span class="keyword">new</span> HashMap&lt;String , Object&gt;();</span><br><span class="line">    mp.put(<span class="string">&quot;useid&quot;</span>, <span class="number">9</span>);</span><br><span class="line">    use nowuse = useMapper.selectUse(mp);</span><br><span class="line">    System.out.println(nowuse);</span><br><span class="line">    sqlSession.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectUse&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;map&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.codezyl.use&quot;</span>&gt;</span></span><br><span class="line">    select * from mybatis.use where id = #&#123;useid&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用外部属性文件将mybatis-config-xml进行优化"><a href="#使用外部属性文件将mybatis-config-xml进行优化" class="headerlink" title="使用外部属性文件将mybatis-config.xml进行优化"></a>使用外部属性文件将mybatis-config.xml进行优化</h3><p>在resources文件夹下创建一个properties文件，用作配置文件，其中可以写driver、url、username等属性；之后就可以在xml文件中引用，并且如果xml文件中有相同名称的配置选项，那么以properties文件为准</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">driver</span> = <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line"><span class="comment">#这里的 &amp; 不用转译</span></span><br><span class="line"><span class="attr">url</span> = <span class="string">jdbc:mysql://localhost:3306/mybatis?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8</span></span><br><span class="line"><span class="attr">password</span> = <span class="string">11111</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">configuration</span></span></span><br><span class="line"><span class="meta">        <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">&quot;db.properties&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;usename&quot;</span> <span class="attr">value</span>=<span class="string">&quot;root&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;123456&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 这里default可以指定使用哪个配置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">&quot;development&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">&quot;development&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">&quot;JDBC&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">&quot;POOLED&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driver&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;driver&#125;&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;url&#125;&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;usename&#125;&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;password&#125;&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">&quot;CodeZyl&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">transactionManager</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">&quot;com/codezyl/mapper/UseMapper.xml&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="别名优化"><a href="#别名优化" class="headerlink" title="别名优化"></a>别名优化</h3><p>我们编写UseMapper.xml中的增删改查时，发现要使用很长的名字作为传入、返回类型。这里我们可以在mybatis配置文件中使用以下常用的两种标签来进行优化</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定包名，那么我们使用这个包中的类时，直接使用该类的名称，并且首字母要小写 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">&quot;com.codezyl&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定类路径，定点，在实体类数量少时可以使用 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">typeAlias</span> <span class="attr">alias</span>=<span class="string">&quot;use&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.codezyl.use&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Mapper说明"><a href="#Mapper说明" class="headerlink" title="Mapper说明"></a>Mapper说明</h3><p>我们可以使用resource填入绝对路径，也可以使用类，使用类时要保证我们的UseMapper接口和UseMapper.xml在同一个包下</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">&quot;com/codezyl/mapper/UseMapper.xml&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">class</span>=<span class="string">&quot;com.codezyl.mapper.UseMapper&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查询内容与返回类型不同"><a href="#查询内容与返回类型不同" class="headerlink" title="查询内容与返回类型不同"></a>查询内容与返回类型不同</h3><p>我们数据库中存的是use(id , name , password)，但我们将其返回的值注入book(id , name , stutas)作为返回，那么会出现变量名称不匹配现象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Book&#123;id=<span class="number">9</span>, name=<span class="string">&#x27;zDl&#x27;</span>, status=<span class="string">&#x27;null&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以使用结果集映射，用一个resultmap去接受查到的数据，然后赋值到我们的实体类中</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span></span></span><br><span class="line"><span class="meta">        <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;codezyl.mapper.BookMapper&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;returnBook&quot;</span> <span class="attr">type</span>=<span class="string">&quot;Book&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> <span class="attr">column</span>=<span class="string">&quot;id&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;name&quot;</span> <span class="attr">column</span>=<span class="string">&quot;name&quot;</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 将 password 作为status --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;status&quot;</span> <span class="attr">column</span>=<span class="string">&quot;password&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 注意是resultMap，而不是resultType --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectUse&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;int&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;returnBook&quot;</span>&gt;</span></span><br><span class="line">        select * from mybatis.use where id = #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以使用SQL语句中的 <strong>as</strong> </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectUse&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;int&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;book&quot;</span>&gt;</span></span><br><span class="line">    select id , name , password as status from mybatis.use where id = #&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用Log4j日志"><a href="#使用Log4j日志" class="headerlink" title="使用Log4j日志"></a>使用Log4j日志</h3><p>导入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/log4j/log4j --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>设置使用Log4j</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">&quot;logImpl&quot;</span> <span class="attr">value</span>=<span class="string">&quot;LOG4J&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在resources文件夹下创建Log4j资源文件log4j.properties</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># priority  :debug&lt;info&lt;warn&lt;error</span></span><br><span class="line"><span class="comment">#you cannot specify every priority with different file for log4j </span></span><br><span class="line"><span class="meta">log4j.rootLogger</span>=<span class="string">debug,stdout,info,debug,warn,error </span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">#console</span></span><br><span class="line"><span class="meta">log4j.appender.stdout</span>=<span class="string">org.apache.log4j.ConsoleAppender </span></span><br><span class="line"><span class="meta">log4j.appender.stdout.layout</span>=<span class="string">org.apache.log4j.PatternLayout </span></span><br><span class="line"><span class="meta">log4j.appender.stdout.layout.ConversionPattern</span>= <span class="string">[%d&#123;yyyy-MM-dd HH:mm:ss a&#125;]:%p %l%m%n</span></span><br><span class="line"><span class="comment">#info log</span></span><br><span class="line"><span class="meta">log4j.logger.info</span>=<span class="string">info</span></span><br><span class="line"><span class="meta">log4j.appender.info</span>=<span class="string">org.apache.log4j.DailyRollingFileAppender </span></span><br><span class="line"><span class="meta">log4j.appender.info.DatePattern</span>=<span class="string">&#x27;_&#x27;yyyy-MM-dd&#x27;.log&#x27;</span></span><br><span class="line"><span class="meta">log4j.appender.info.File</span>=<span class="string">./src/com/hp/log/info.log</span></span><br><span class="line"><span class="meta">log4j.appender.info.Append</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">log4j.appender.info.Threshold</span>=<span class="string">INFO</span></span><br><span class="line"><span class="meta">log4j.appender.info.layout</span>=<span class="string">org.apache.log4j.PatternLayout </span></span><br><span class="line"><span class="meta">log4j.appender.info.layout.ConversionPattern</span>=<span class="string">%d&#123;yyyy-MM-dd HH:mm:ss a&#125; [Thread: %t][ Class:%c &gt;&gt; Method: %l ]%n%p:%m%n</span></span><br><span class="line"><span class="comment">#debug log</span></span><br><span class="line"><span class="meta">log4j.logger.debug</span>=<span class="string">debug</span></span><br><span class="line"><span class="meta">log4j.appender.debug</span>=<span class="string">org.apache.log4j.DailyRollingFileAppender </span></span><br><span class="line"><span class="meta">log4j.appender.debug.DatePattern</span>=<span class="string">&#x27;_&#x27;yyyy-MM-dd&#x27;.log&#x27;</span></span><br><span class="line"><span class="meta">log4j.appender.debug.File</span>=<span class="string">./src/com/hp/log/debug.log</span></span><br><span class="line"><span class="meta">log4j.appender.debug.Append</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">log4j.appender.debug.Threshold</span>=<span class="string">DEBUG</span></span><br><span class="line"><span class="meta">log4j.appender.debug.layout</span>=<span class="string">org.apache.log4j.PatternLayout </span></span><br><span class="line"><span class="meta">log4j.appender.debug.layout.ConversionPattern</span>=<span class="string">%d&#123;yyyy-MM-dd HH:mm:ss a&#125; [Thread: %t][ Class:%c &gt;&gt; Method: %l ]%n%p:%m%n</span></span><br><span class="line"><span class="comment">#warn log</span></span><br><span class="line"><span class="meta">log4j.logger.warn</span>=<span class="string">warn</span></span><br><span class="line"><span class="meta">log4j.appender.warn</span>=<span class="string">org.apache.log4j.DailyRollingFileAppender </span></span><br><span class="line"><span class="meta">log4j.appender.warn.DatePattern</span>=<span class="string">&#x27;_&#x27;yyyy-MM-dd&#x27;.log&#x27;</span></span><br><span class="line"><span class="meta">log4j.appender.warn.File</span>=<span class="string">./src/com/hp/log/warn.log</span></span><br><span class="line"><span class="meta">log4j.appender.warn.Append</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">log4j.appender.warn.Threshold</span>=<span class="string">WARN</span></span><br><span class="line"><span class="meta">log4j.appender.warn.layout</span>=<span class="string">org.apache.log4j.PatternLayout </span></span><br><span class="line"><span class="meta">log4j.appender.warn.layout.ConversionPattern</span>=<span class="string">%d&#123;yyyy-MM-dd HH:mm:ss a&#125; [Thread: %t][ Class:%c &gt;&gt; Method: %l ]%n%p:%m%n</span></span><br><span class="line"><span class="comment">#error</span></span><br><span class="line"><span class="meta">log4j.logger.error</span>=<span class="string">error</span></span><br><span class="line"><span class="meta">log4j.appender.error</span> = <span class="string">org.apache.log4j.DailyRollingFileAppender</span></span><br><span class="line"><span class="meta">log4j.appender.error.DatePattern</span>=<span class="string">&#x27;_&#x27;yyyy-MM-dd&#x27;.log&#x27;</span></span><br><span class="line"><span class="meta">log4j.appender.error.File</span> = <span class="string">./src/com/hp/log/error.log </span></span><br><span class="line"><span class="meta">log4j.appender.error.Append</span> = <span class="string">true</span></span><br><span class="line"><span class="meta">log4j.appender.error.Threshold</span> = <span class="string">ERROR </span></span><br><span class="line"><span class="meta">log4j.appender.error.layout</span> = <span class="string">org.apache.log4j.PatternLayout</span></span><br><span class="line"><span class="meta">log4j.appender.error.layout.ConversionPattern</span> = <span class="string">%d&#123;yyyy-MM-dd HH:mm:ss a&#125; [Thread: %t][ Class:%c &gt;&gt; Method: %l ]%n%p:%m%n</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="注解代替xml进行CRUD"><a href="#注解代替xml进行CRUD" class="headerlink" title="注解代替xml进行CRUD"></a>注解代替xml进行CRUD</h3><p>直接去除Mapper.xml文件，面向接口编程，直接在接口上方使用注解进行，注意mybatis-config.xml中的mappers标签要用类方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="comment">//这里的@Param注解表明我们将传入的参数重命名为什么，要求使用</span></span><br><span class="line">    <span class="meta">@Select(&quot;select * from mybatis.use where id = #&#123;uid&#125;&quot;)</span></span><br><span class="line">    <span class="function">User <span class="title">selectId</span><span class="params">(<span class="meta">@Param(&quot;uid&quot;)</span> <span class="keyword">int</span> id)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="limit分页操作"><a href="#limit分页操作" class="headerlink" title="limit分页操作"></a>limit分页操作</h3><p>数据库中数据量太大，我们可以使用分页查询，规定查出多少数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserMapperTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        SqlSession sqlSession = MybatisUtils.getSqlsession();</span><br><span class="line">        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);</span><br><span class="line"></span><br><span class="line">        HashMap&lt;String , Integer&gt; mp = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        mp.put(<span class="string">&quot;st&quot;</span> , <span class="number">1</span>);</span><br><span class="line">        mp.put(<span class="string">&quot;len&quot;</span> , <span class="number">2</span>);</span><br><span class="line">        List&lt;User&gt; userList = userMapper.select(mp);</span><br><span class="line">        <span class="keyword">for</span> (User user : userList) &#123;</span><br><span class="line">            System.out.println(user);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        sqlSession.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;select&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;map&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.codezyl.User&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 表示从st行开始，查阅len个数据并返回 --&gt;</span></span><br><span class="line">    select * from mybatis.use limit #&#123;st&#125; , #&#123;len&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="多对一"><a href="#多对一" class="headerlink" title="多对一"></a>多对一</h3><p>每个学生都对应一个老师，而一名老师可以对应多名学生，查询出一个学生的信息，并且根据他村的 tid 查出他的老师类</p>
+<p>两种方法：</p>
+<p>①</p>
+<p>定义返回类型为 StudentAndTeacher ，然后将 StudentAndTeacher 映射成 Student 类 </p>
+<p>其实就是使用了子查询，先查出学生的 tid ，然后利用tid去查老师</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 这里的id是我们参数传递进来的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectIdWithTeacher&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;_int&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;StudentAndTeacher&quot;</span>&gt;</span></span><br><span class="line">    select * from mybatis.student where id = #&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这里id是我们下面的column = &quot;tid&quot; 查出来 然后传进id 的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectIdTeacher&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;_int&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.codezyl.pojo.Teacher&quot;</span>&gt;</span></span><br><span class="line">    select * from mybatis.teacher where id = #&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;StudentAndTeacher&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.codezyl.pojo.Student&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> <span class="attr">column</span>=<span class="string">&quot;id&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;name&quot;</span> <span class="attr">column</span>=<span class="string">&quot;name&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 使用tid 这一列从 selectIdTeacher 查出teacher，然后作为 Student中的teacher --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;teacher&quot;</span> <span class="attr">column</span>=<span class="string">&quot;tid&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.codezyl.pojo.Teacher&quot;</span> <span class="attr">select</span>=<span class="string">&quot;selectIdTeacher&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>②</p>
+<p>直接查出一堆信息，然后使用resultMap去映射，主要难在sql语句的书写</p>
+<p>注意最后的where s.id = #{id}</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectIdWithTeacher2&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;_int&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;StudentAndTeacher2&quot;</span>&gt;</span></span><br><span class="line">    select s.id sid , s.name sname , t.id tid , t.name tname from mybatis.student s , mybatis.teacher t where s.id = #&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;StudentAndTeacher2&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.codezyl.pojo.Student&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> <span class="attr">column</span>=<span class="string">&quot;sid&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;name&quot;</span> <span class="attr">column</span>=<span class="string">&quot;sname&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;teacher&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.codezyl.pojo.Teacher&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> <span class="attr">column</span>=<span class="string">&quot;tid&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;name&quot;</span> <span class="attr">column</span>=<span class="string">&quot;tname&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h3><p>一个老师对应多个学生，我们要将查询到的老师输出，并且输出他关联的学生</p>
+<p>同样的两种方法，一种子查询，一种多表查询</p>
+<p>①</p>
+<p>将关联association换成集合collection即可，注意要加 ofType作为返回对象的类型，javaTape作为返回什么类型，这里是List，而List的Java类型就是ArrayList</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectWithList&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;_int&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;TeacherAndStudent&quot;</span>&gt;</span></span><br><span class="line">select * from mybatis.teacher where id = #&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;TeacherAndStudent&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.codezyl.pojo.Teacher&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> <span class="attr">column</span>=<span class="string">&quot;id&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;name&quot;</span> <span class="attr">column</span>=<span class="string">&quot;name&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">&quot;studentList&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;ArrayList&quot;</span> <span class="attr">ofType</span>=<span class="string">&quot;com.codezyl.pojo.Student&quot;</span> <span class="attr">select</span>=<span class="string">&quot;selectStudent&quot;</span> <span class="attr">column</span>=<span class="string">&quot;id&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectStudent&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;_int&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.codezyl.pojo.Student&quot;</span>&gt;</span></span><br><span class="line">    select * from mybatis.student where tid = #&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>②</p>
+<p>注意会写多表查询</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectWithList2&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;_int&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;TeacherAndStudent2&quot;</span>&gt;</span></span><br><span class="line">    select t.id tid , t.name tname , s.id sid , s.name sname from mybatis.student s , mybatis.teacher t where t.id = #&#123;id&#125; and s.tid = #&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;TeacherAndStudent2&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.codezyl.pojo.Teacher&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 前两个result可省略，因为Java类与数据库中列相对应了 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> <span class="attr">column</span>=<span class="string">&quot;tid&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;name&quot;</span> <span class="attr">column</span>=<span class="string">&quot;tname&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">&quot;studentList&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;ArrayList&quot;</span> <span class="attr">ofType</span>=<span class="string">&quot;com.codezyl.pojo.Student&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> <span class="attr">column</span>=<span class="string">&quot;sid&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;name&quot;</span> <span class="attr">column</span>=<span class="string">&quot;sname&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>简介：当我们从数据库多次查找某一特定数据时，会花费不少时间在数据库连接相关上；引入缓存后，当我们查找一个数据，就将该数据放到缓存中，下次（一段时间内）再查就会从缓存中取，效率高</p>
+<h4 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a>一级缓存</h4><p>会默认开启，不用我们自己开启</p>
+<h4 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h4><p>当我们的SqlSession关闭时，会把查过的数据提交给二级缓存，如果有另一个SqlSession去查这个相同数据时，不用通过数据库，直接通过二级缓存即可</p>
+<p>在我们使用的方法的Mapper.xml中加入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">cache</span> <span class="attr">readOnly</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意要加readOnly，否则会报没有序列化错误</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TeacherMapperTest</span>  </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        SqlSession sqlSession1 = MybatisUtils.getSqlSession();</span><br><span class="line">        TeacherMapper teacherMapper1 = sqlSession1.getMapper(TeacherMapper.class);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Teacher teacher1 = teacherMapper1.selectWithList2(<span class="number">1</span>);</span><br><span class="line">        System.out.println(teacher1);</span><br><span class="line"></span><br><span class="line">        sqlSession1.close();</span><br><span class="line"></span><br><span class="line">        SqlSession sqlSession = MybatisUtils.getSqlSession();</span><br><span class="line">        TeacherMapper teacherMapper = sqlSession.getMapper(TeacherMapper.class);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Teacher teacher = teacherMapper.selectWithList2(<span class="number">1</span>);</span><br><span class="line">        System.out.println(teacher);</span><br><span class="line"></span><br><span class="line">        sqlSession.close();</span><br><span class="line"></span><br><span class="line">        System.out.println(teacher1 == teacher);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果使用一级缓存，这里会输出 false ，但使用二级缓存就是 true</p>
+<h4 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h4><p>我们也不用加<strong>readOnly = “true”</strong> ，在两个实体类上加上<strong>implements Serializable</strong>（这样就序列化了）；但是答案是false，是因为序列化是深拷贝，所以得到的对象不是在内存中的同一个。</p>
+<h3 id="项目环境搭建注意事项"><a href="#项目环境搭建注意事项" class="headerlink" title="项目环境搭建注意事项"></a>项目环境搭建注意事项</h3><p>xxxMapper接口一定要和xxxMapper.xml在一个文件夹下！！！！ </p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -186,16 +288,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/08/%E9%93%BE%E8%A1%A8%E5%88%A0%E5%8E%BB%E6%89%80%E6%9C%89%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/03/31/MybatisStudy/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2022/03/30/TheFirstMybatisProgram/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TheFirstMybatisProgram</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -215,598 +376,14 @@
 
 
 
-
-  
-    <article id="post-Spring5-事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/02/Spring5-%E4%BA%8B%E5%8A%A1/">Spring5-事务</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/02/Spring5-%E4%BA%8B%E5%8A%A1/" class="archive-article-date">
-  	<time datetime="2022-03-02T10:42:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="事务概念"><a href="#事务概念" class="headerlink" title="事务概念"></a>事务概念</h5><p>事务是数据库操作的最基本单位，是逻辑上的一组操作，要么全部成功，要么全部失败（只要有一个操作失败，那么整个事务就失败）</p>
-        
-          <a class="article-more-a" href="/2022/03/02/Spring5-%E4%BA%8B%E5%8A%A1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/02/Spring5-%E4%BA%8B%E5%8A%A1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring5-JdbcTemplate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/01/Spring5-JdbcTemplate/">Spring5-JdbcTemplate</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/01/Spring5-JdbcTemplate/" class="archive-article-date">
-  	<time datetime="2022-03-01T12:17:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h5><p>首先引入Jar包</p>
-        
-          <a class="article-more-a" href="/2022/03/01/Spring5-JdbcTemplate/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/01/Spring5-JdbcTemplate/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LeetCode周赛227" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/27/LeetCode%E5%91%A8%E8%B5%9B227/">LeetCode周赛227</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/27/LeetCode%E5%91%A8%E8%B5%9B227/" class="archive-article-date">
-  	<time datetime="2022-02-27T14:05:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>给你一个下标从 0 开始的二维整数数组 tires ，其中 tires[i] = [fi, ri] 表示第 i 种轮胎如果连续使用，第 x 圈需要耗时 fi * ri(x-1) 秒。</p>
-        
-          <a class="article-more-a" href="/2022/02/27/LeetCode%E5%91%A8%E8%B5%9B227/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/27/LeetCode%E5%91%A8%E8%B5%9B227/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring-AOP操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/27/Spring-AOP%E6%93%8D%E4%BD%9C/">Spring_AOP操作</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/27/Spring-AOP%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2022-02-27T12:11:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="AOP基本概念"><a href="#AOP基本概念" class="headerlink" title="AOP基本概念"></a>AOP基本概念</h6><p>不通过修改源代码的方式，可以对主干功能进行添加新功能；可以降低各业务之间的耦合度，提高开发效率。</p>
-        
-          <a class="article-more-a" href="/2022/02/27/Spring-AOP%E6%93%8D%E4%BD%9C/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/27/Spring-AOP%E6%93%8D%E4%BD%9C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Acwing1875" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/24/Acwing1875/">Acwing1875</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/24/Acwing1875/" class="archive-article-date">
-  	<time datetime="2022-01-24T14:15:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="贝茜的报复"><a href="#贝茜的报复" class="headerlink" title="贝茜的报复"></a>贝茜的报复</h1><p>农夫约翰和奶牛贝茜喜欢在业余时间互相出数学题。</p>
-        
-          <a class="article-more-a" href="/2022/01/24/Acwing1875/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/24/Acwing1875/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Leetcode盛最多的水" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/24/Leetcode%E7%9B%9B%E6%9C%80%E5%A4%9A%E7%9A%84%E6%B0%B4/">Leetcode盛最多的水</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/24/Leetcode%E7%9B%9B%E6%9C%80%E5%A4%9A%E7%9A%84%E6%B0%B4/" class="archive-article-date">
-  	<time datetime="2022-01-24T14:14:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="盛最多的水"><a href="#盛最多的水" class="headerlink" title="盛最多的水"></a>盛最多的水</h1><p>给你 n 个非负整数 a1，a2，…，an</p>
-        
-          <a class="article-more-a" href="/2022/01/24/Leetcode%E7%9B%9B%E6%9C%80%E5%A4%9A%E7%9A%84%E6%B0%B4/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/24/Leetcode%E7%9B%9B%E6%9C%80%E5%A4%9A%E7%9A%84%E6%B0%B4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Acwing1904" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/22/Acwing1904/">Acwing1904</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/22/Acwing1904/" class="archive-article-date">
-  	<time datetime="2022-01-22T13:08:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="奶牛慢跑"><a href="#奶牛慢跑" class="headerlink" title="奶牛慢跑"></a>奶牛慢跑</h1><p>奶牛们又出去锻炼蹄子去了！</p>
-        
-          <a class="article-more-a" href="/2022/01/22/Acwing1904/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/22/Acwing1904/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Acwing1884" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/22/Acwing1884/">Acwing1884</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/22/Acwing1884/" class="archive-article-date">
-  	<time datetime="2022-01-22T13:08:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="COW"><a href="#COW" class="headerlink" title="COW"></a>COW</h1><p>奶牛贝茜在她最喜欢的牧场中发现了一块石碑，上面刻有神秘的碑文。</p>
-<p>碑文的文字似乎来自一种神秘的古代语言，可看作一个只包含 C,O,W 三种字符的字符串。</p>
-        
-          <a class="article-more-a" href="/2022/01/22/Acwing1884/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/22/Acwing1884/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Acwing1913" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/20/Acwing1913/">Acwing1913</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/20/Acwing1913/" class="archive-article-date">
-  	<time datetime="2022-01-20T13:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Acwing公平摄影1913"><a href="#Acwing公平摄影1913" class="headerlink" title="Acwing公平摄影1913"></a>Acwing公平摄影1913</h1><p>农夫约翰的 N 头奶牛站在一维长围栏的不同位置。</p>
-        
-          <a class="article-more-a" href="/2022/01/20/Acwing1913/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/20/Acwing1913/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -829,8 +406,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
