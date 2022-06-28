@@ -173,13 +173,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="Java中接口与抽象类的区别"><a href="#Java中接口与抽象类的区别" class="headerlink" title="Java中接口与抽象类的区别"></a>Java中接口与抽象类的区别</h4><p>①一个类只能继承一个抽象类，但可以实现多个接口</p>
-<p>②抽象类中可以含有普通的成员方法，而接口不能。也就是抽象类里可以具有具体的方法，而接口不行</p>
-<p>③抽象类里面可以第一自己的变量和常量，而接口里只能用final关键字来定义常量。</p>
-<p>④抽象类只能继承一个抽象类，而一个接口可以继承多个接口</p>
-<h4 id="Java中的Integer"><a href="#Java中的Integer" class="headerlink" title="Java中的Integer"></a>Java中的Integer</h4><p>在new Integer时，如果值在[-128,127]，那么会直接从缓存拿，否则就新new一个</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer a = <span class="number">127</span>;</span><br><span class="line">        Integer b = <span class="number">127</span>;</span><br><span class="line">        System.out.println(a == b);</span><br><span class="line"></span><br><span class="line">        Integer c = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">        Integer d = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">        System.out.println(c == d);</span><br><span class="line"></span><br><span class="line">        Integer e = <span class="number">128</span>;</span><br><span class="line">        Integer f = <span class="number">128</span>;</span><br><span class="line">        System.out.println(e == f);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">out：</span><br><span class="line">	<span class="keyword">true</span></span><br><span class="line">	<span class="keyword">false</span></span><br><span class="line">	<span class="keyword">false</span></span><br></pre></td></tr></table></figure>
-
-
+        
+          <a class="article-more-a" href="/2022/06/28/Java%E5%85%AB%E8%82%A1/#more">more >></a>
+        
       
 
       
@@ -242,7 +238,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="计算属性缓存And方法"><a href="#计算属性缓存And方法" class="headerlink" title="计算属性缓存And方法"></a>计算属性缓存And方法</h3><p>最大区别在于我们访问属性和方法时，如果msg没变，那么msg.方法会返回原来的结果，不会重新执行；而方法会重新执行。所以当我们不需要他重新加载时用属性即可，并且他可以保存缓存。假如我们要遍历一个很大的数组获得从而获得答案，如果msg没变，我们直接那原来的值即可，不用花大量时间重新便利数组。</p>
-
+        
+          <a class="article-more-a" href="/2022/06/25/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
+        
       
 
       
@@ -437,17 +435,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回 一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间 。</p>
-<p>示例 1：</p>
-<p>输入：intervals = [[1,3],[2,6],[8,10],[15,18]]<br>输出：[[1,6],[8,10],[15,18]]<br>解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].<br>示例 2：</p>
-<p>输入：intervals = [[1,4],[4,5]]<br>输出：[[1,5]]<br>解释：区间 [1,4] 和 [4,5] 可被视为重叠区间。</p>
-<p>提示：</p>
-<p>1 &lt;= intervals.length &lt;= 104<br>intervals[i].length == 2<br>0 &lt;= starti &lt;= endi &lt;= 104</p>
-<p>思路：</p>
-<p>……</p>
-<p>主要难点在于Java中sort的comparator老是忘了怎么写</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] merge(<span class="keyword">int</span>[][] intervals) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = intervals.length;</span><br><span class="line">        <span class="keyword">if</span>(intervals.length == <span class="number">1</span>)<span class="keyword">return</span> intervals;</span><br><span class="line">        <span class="comment">//对二维数组排序，如果是一维数组，compare里传int a,int b即可</span></span><br><span class="line">        Arrays.sort(intervals , <span class="keyword">new</span> Comparator&lt;&gt;()&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span> [] a , <span class="keyword">int</span> [] b)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> a[<span class="number">0</span>] - b[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//list里放数组的写法</span></span><br><span class="line">        List&lt;<span class="keyword">int</span> []&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> pre = intervals[<span class="number">0</span>][<span class="number">0</span>],now = intervals[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span> ; i &lt; n ; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(intervals[i][<span class="number">0</span>] &gt; now) &#123;</span><br><span class="line">                list.add(<span class="keyword">new</span> <span class="keyword">int</span> []&#123;pre , now&#125;);</span><br><span class="line">                pre = intervals[i][<span class="number">0</span>];</span><br><span class="line">                now = intervals[i][<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                now = Math.max(now , intervals[i][<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        list.add(<span class="keyword">new</span> <span class="keyword">int</span> []&#123;pre , now&#125;);</span><br><span class="line">        <span class="keyword">return</span> list.toArray(<span class="keyword">new</span> <span class="keyword">int</span>[list.size()][]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+        
+          <a class="article-more-a" href="/2022/05/19/Java%E4%B8%ADsort%E6%95%B0%E7%BB%84/#more">more >></a>
+        
       
 
       
@@ -510,18 +500,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>首先，我应该明白我的优势在哪里，劣势在哪里</p>
-<p>优势：①拥有一块ccpc银牌</p>
-<p>​            ②已经学习了5个月的就业相关知识</p>
-<p>​            ③具有一些面试经验</p>
-<p>劣势：①英语极差，四级未过</p>
-<p>​            ②现在已经5月13日，别人有的去年9月就开始准备了</p>
-<p>​            ③高数第二册掌握程度为0</p>
-<p>​            ④家里并不富裕，父母虽支持考研，但比较艰难</p>
-<p>所有的人都知道，大部分研究生的未来都要比本科生好，选择方向更多。但是，我们总是站在我们<strong>已经考上</strong>了一个不错的211或者985的学校，可2022年有300w的大学生落榜，可见研究生并不好考。另外，可能你认为一些英二数二加851的学校很适合你，但你殊不知你的竞争对手很早就开始准备了，并且你引以为傲的数据结构算法可能并不能给你带来很大的差距。相反，那些数学110+，英语70+的可以随便拉几条街，专业课所拉开的那10、20分，并不会弥补你英语不好，数学不行的差距。</p>
-<p>所以，对于你来讲，就业明显是更有优势一点，坚定一个目标，往前走，切勿分心。另外，如果你幻想你考研的时候每天学习12h+，那么就请你先在找工作的时候学这么长时间吧，不要异想天开，考研远比你想的卷。</p>
-<p>从现在开始，每天三线程，刷题+项目+八股，保证自己有能力应付面试，先找份暑期实习，哪怕是小厂，争取春招找到一个中厂，以后慢慢跳也可以进大厂。再说，你也不是好读书的料阿….</p>
-<p>不要拿你的学历去掩盖你的能力不足，前前后后过简历的也不少，可是自己面成功了几家呢？字节过简历了，可是你把握住了吗？给你机会你不中用阿！</p>
-
+        
+          <a class="article-more-a" href="/2022/05/13/%E5%85%B3%E4%BA%8E%E8%80%83%E7%A0%94%E4%B8%8E%E5%B0%B1%E4%B8%9A/#more">more >></a>
+        
       
 
       
@@ -586,11 +567,9 @@
         <p>1、自我介绍</p>
 <p>2、HashMap底层怎么实现，红黑树怎么比较两个对象（key-value）</p>
 <p>3、B+树和B-树</p>
-<p>4、场景题：下载数据时，拔掉网线之后再快速插上，会发现继续下载，这是为什么？拔掉之后隔一段时间再插上，发现下载失败，这是为什么？</p>
-<p>5、场景题：一个1T的文件，里面每个数据由id+name组成，id为32位，如何求出id出现次数最多的前十个id（磁盘能存的下该文件，内存不行）</p>
-<p>6、算法题：给一个串，只有小写字母组成，剔除串中重复元素，能组成的字典序最小的串是什么。</p>
-<p>7、反问：我现在是否需要去学习go，为将来进公司做准备</p>
-
+        
+          <a class="article-more-a" href="/2022/05/10/%E5%AD%97%E8%8A%82510%E4%B8%80%E9%9D%A2/#more">more >></a>
+        
       
 
       
@@ -654,21 +633,9 @@
       
         <p>该算法用来求最长回文串问题</p>
 <p>给定一个长度为 n 的由小写字母构成的字符串，求它的最长回文子串的长度是多少。</p>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>一个由小写字母构成的字符串。</p>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数，表示最长回文子串的长度。</p>
-<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤n≤1e7</p>
-<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abcbabcbabcba</span><br></pre></td></tr></table></figure>
-
-<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="算法思想："><a href="#算法思想：" class="headerlink" title="算法思想："></a>算法思想：</h3><p>我们对于字符串s记录一个数组p，p[i]表示以i为中心，最长的回文串半径是多大，比如再aba中，p[0] = 1,p[1] = 2；我们定义一个mid和一个maxr，mid为：当前维护的回文串集合中最后一个元素最靠右的那个回文串的中心 ，maxr为：p[mid] + i 。</p>
-<p>当我们从0遍历到n时，假如此时到了j，那么我们找到j相对于mid的对称点i，那么p[j] 可能等于p[i]，也可能不相等，例如i - p[i] &lt; mid - p[mid]，那么一定p[i] != p[j]，因为如果相同，那么p[mid]一定会更大；那么我们就应该让p[j] = min(p[mid - (i - mid)] , maxr - i)，这样就能先确定p[i]的当前最大值，然后我们开始拓展，也就是如果p[i] + i &gt;= maxr,那么就让mid = i，maxr = p[i] + i，并且执行while(b[maxr] == b[i - p[i]])maxr ++,p[i] ++，直到拓展失败。这就是manacher的大致思路。</p>
-<p>但是，我们发现，我们求得p[i]都是以i为中心的最大回文串的半径，所以如果我给了”aa”，那么结果就只能是1，因为无论取哪个a，p[i]都是1。那么就能知道，manacher只能求长度为奇数的最大回文串，那么怎么办呢？我们可以对原串进行改造，我们将”aa”该为”#a#a#”，这样得到的每个回文串的长度都只会是奇数，我们又发现，上述的while循环没有判边界，可能会RE，所以我们再进行改造，将串的两头加上两个用不到的字符，那么就变成了”$#a#a#^”，这样就可以了。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e7</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">char</span> a[N],b[N];</span><br><span class="line"><span class="keyword">int</span> p[N];</span><br><span class="line"><span class="keyword">int</span> n,now;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    b[now ++] = <span class="string">&#x27;$&#x27;</span>;b[now ++] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; n ; i ++)</span><br><span class="line">        b[now ++] = a[i],b[now ++] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">    b[now ++] = <span class="string">&#x27;^&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">manacher</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxx = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">1</span>,mr = <span class="number">1</span>;</span><br><span class="line">    p[<span class="number">0</span>] = <span class="number">1</span>;p[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span> ; i &lt; now - <span class="number">1</span> ; i ++) &#123;</span><br><span class="line">        p[i] = <span class="built_in">min</span>(p[<span class="number">2</span> * mid - i] , mr - i);</span><br><span class="line">        <span class="keyword">if</span>(p[i] + i &gt;= mr) &#123;</span><br><span class="line">            mid = i;</span><br><span class="line">            mr = p[i] + i;</span><br><span class="line">            <span class="keyword">while</span>(b[mr] == b[i - p[i]]) &#123;</span><br><span class="line">                mr ++;</span><br><span class="line">                p[i] ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        maxx = <span class="built_in">max</span>(maxx , p[i]);</span><br><span class="line">        cout &lt;&lt; b[i] &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; p[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxx - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; a;</span><br><span class="line">    n = <span class="built_in">strlen</span>(a);</span><br><span class="line">    <span class="built_in">init</span>();</span><br><span class="line">    cout &lt;&lt; <span class="built_in">manacher</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+        
+          <a class="article-more-a" href="/2022/04/28/manacher%E7%AE%97%E6%B3%95/#more">more >></a>
+        
       
 
       
