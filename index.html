@@ -152,6 +152,154 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Redis学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/06/Redis%E5%AD%A6%E4%B9%A0/">Redis学习</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/06/Redis%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2022-07-06T11:18:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h3><blockquote>
+<p>英文：redis.io</p>
+<p>中文：redis.cn</p>
+</blockquote>
+<p>参考文档：</p>
+<p>​                狂神：<a target="_blank" rel="noopener" href="https://blog.csdn.net/lijie0213/article/details/108129934">https://blog.csdn.net/lijie0213/article/details/108129934</a></p>
+<h3 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a>安装Redis</h3><h4 id="Windows下"><a href="#Windows下" class="headerlink" title="Windows下"></a>Windows下</h4><p>​            直接官网安装，执行redis-server，然后开另一个命令行窗口执行redis-cli即可使用</p>
+<h4 id="Linux下"><a href="#Linux下" class="headerlink" title="Linux下"></a>Linux下</h4><p>​            在官网下载后使用xftp上传到服务器上-》压缩包移动至opt目录下并解压-》进入usr/local/bin下，输入yum install gcc-            c++-》依次输入make、make install-》将opt目录下解压到的redis.conf配置文件拷贝到usr/local/bin目录下，以后使用该目            录的配置文件，如果损害，还有存有备份</p>
+<h3 id="Redis压力测试"><a href="#Redis压力测试" class="headerlink" title="Redis压力测试"></a>Redis压力测试</h3><p>在bin目录下运行redis-benchmark命令，并且添加参数 -c ：连接个数 ，-n 每个连接的请求数量</p>
+<p><strong>redis-benchmark -c 100 -n 100000</strong></p>
+<p>结果：</p>
+<p>Summary:<br>  throughput summary: 72254.34 requests per second<br>  latency summary (msec):<br>  avg       min       p50       p95       p99       max<br> 1.050     0.328     1.007     1.703     2.055     4.655</p>
+<h3 id="Redis基本知识"><a href="#Redis基本知识" class="headerlink" title="Redis基本知识"></a>Redis基本知识</h3><p>Redis有16个数据库，默认使用的是第0个</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//更换第几个数据库</span><br><span class="line">select x</span><br><span class="line">//查看当前数据库中数据个数</span><br><span class="line">dbsize</span><br><span class="line">//清除当前数据库</span><br><span class="line">flushdb</span><br><span class="line">//清除所有数据库</span><br><span class="line">flushall</span><br><span class="line">//查看所有key</span><br><span class="line">keys *</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Redis使用的是单线程"><a href="#Redis使用的是单线程" class="headerlink" title="Redis使用的是单线程"></a>Redis使用的是单线程</h4><p>首先，我们要知道</p>
+<p>​                        ①单线程不一定比多线程慢，因为多线程切换上下文也有花销</p>
+<p>​                        ②高性能的服务器不一定是多线程的</p>
+<p>原因：①Redis是将所有的数据放到内存中去的，在内存中读写，CPU切换上下文就是最大的花销，而单线程无需切换上下文。一般请求都是客户端向服务器请求数据，要经过    客户端发出请求–》网络传输请求–》服务器端接收请求–》服务器端处理请求并返回数据。而我们的服务器端接收到请求并不会马上执行，而是将他们排成一个队列，之后使用I/O多路复用技术用单线程来执行这些请求，而I/O多路复用就是当服务器端数据准备好时，才会将数据返回，也就是每个请求都能一次得到数据，减小了请求失败所带来的不必要开销。</p>
+<p>③而且使用单线程不用考虑加锁、释放锁、线程安全的问题</p>
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><p>注意：如果数据库中已存在key，再次执行set key xxx，会覆盖原来的值</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//是否存在key</span><br><span class="line">exists key</span><br><span class="line">//删除该键值对</span><br><span class="line">del key</span><br><span class="line">//为键值对设置延时删除</span><br><span class="line">expire key 10     表示10s后，key-value键值对自动删除</span><br><span class="line">//查看剩余延时</span><br><span class="line">ttl key </span><br><span class="line">//查看key对应值得类型</span><br><span class="line">type key</span><br><span class="line">//移动键值对</span><br><span class="line">move key 1    表示将键值对移动到数据库1</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/06/Redis%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/06/Linux%E5%AD%A6%E4%B9%A0/">Linux学习</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/06/Linux%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2022-07-06T00:55:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="报错-bash-ls-command-not-found"><a href="#报错-bash-ls-command-not-found" class="headerlink" title="报错-bash: ls: command not found"></a>报错-bash: ls: command not found</h3><p>输入：export PATH=/bin:/usr/bin:$PATH</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/06/Linux%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java八股" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -648,136 +796,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/04/28/manacher%E7%AE%97%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringMVC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/04/SpringMVC/">SpringMVC</a>
-    </h1>
-  
-
-        
-        <a href="/2022/04/04/SpringMVC/" class="archive-article-date">
-  	<time datetime="2022-04-04T13:47:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="回顾MVC程序"><a href="#回顾MVC程序" class="headerlink" title="回顾ＭＶＣ程序"></a>回顾ＭＶＣ程序</h3><p>创建一个maven父工程，之后创建子工程springmvc01，右击项目点击 添加框架支持 ，创建一个WebClass类，作为我们的MVC程序</p>
-        
-          <a class="article-more-a" href="/2022/04/04/SpringMVC/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/04/SpringMVC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MybatisStudy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/31/MybatisStudy/">MybatisStudy</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/31/MybatisStudy/" class="archive-article-date">
-  	<time datetime="2022-03-31T07:36:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="使用Map代替传统类"><a href="#使用Map代替传统类" class="headerlink" title="使用Map代替传统类"></a>使用Map代替传统类</h3><p>如果我们的实体类中的属性过于多，那么要写很多东西，并且要与数据库名称一一对应，但我们可以使用 map ，在map中插入我们需要的东西，然后传入map即可，比如我们只用use中的id和name，那么我们就可以只用map将这两个属性传入即可</p>
-        
-          <a class="article-more-a" href="/2022/03/31/MybatisStudy/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/31/MybatisStudy/">展开全文 >></a>
         </p>
       
 
