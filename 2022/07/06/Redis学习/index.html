@@ -16,7 +16,7 @@
 <meta property="og:description" content="官网 英文：redis.io 中文：redis.cn">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-06T11:18:13.000Z">
-<meta property="article:modified_time" content="2022-07-06T13:01:12.851Z">
+<meta property="article:modified_time" content="2022-07-07T12:46:41.487Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -199,6 +199,255 @@
 <h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><p>注意：如果数据库中已存在key，再次执行set key xxx，会覆盖原来的值</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//是否存在key</span><br><span class="line">exists key</span><br><span class="line">//删除该键值对</span><br><span class="line">del key</span><br><span class="line">//为键值对设置延时删除</span><br><span class="line">expire key 10     表示10s后，key-value键值对自动删除</span><br><span class="line">//查看剩余延时</span><br><span class="line">ttl key </span><br><span class="line">//查看key对应值得类型</span><br><span class="line">type key</span><br><span class="line">//移动键值对</span><br><span class="line">move key 1    表示将键值对移动到数据库1</span><br></pre></td></tr></table></figure>
 
+<h3 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">append key &quot;xxx&quot;  表示在key对应的value后面拼接xxx</span><br><span class="line">incr key          表示为key对应的int类型的值+1</span><br><span class="line">decr key          -1</span><br><span class="line">incrby/decrby key num 表示为key对应的int类型的值+num</span><br><span class="line">strlen key        表示得到value字符串类型的长度</span><br><span class="line">getset key value  先get到值，无值返回nil；再set值</span><br><span class="line">getrange key start end 表示得到对应value字符串中start到end中的值</span><br><span class="line">setrange key start xxx 表示将start后面的字符串替换为xxx，例：value = zyl，1 ppp --&gt; value = zppp</span><br><span class="line">													 value = zyl, 1 p   --&gt; value = zpl</span><br><span class="line">mset a 1 b 2 c 3  一次添加多个键值对</span><br><span class="line">mget a b c        一次得到多个value</span><br><span class="line">setnx key value   当key不存在是添加键值对</span><br><span class="line">setex key seconds value 设置过期时间并且设置value</span><br></pre></td></tr></table></figure>
+
+<h3 id="List类型"><a href="#List类型" class="headerlink" title="List类型"></a>List类型</h3><p>本质是链表，所以在链表中间操作会很耗时间</p>
+<table>
+<thead>
+<tr>
+<th>lpush/rpush list value1</th>
+<th align="left">在list左/右侧添加value，可添加多个</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lpop/rpop list num</td>
+<td align="left">从左/右pop出num个数据</td>
+</tr>
+<tr>
+<td>lrange list start end</td>
+<td align="left">获得start到end的数据，如果end为-1，表示end为结尾</td>
+</tr>
+<tr>
+<td>lindex list index</td>
+<td align="left">获得下标为index的数据</td>
+</tr>
+<tr>
+<td>llen list</td>
+<td align="left">获得list中存数据的个数</td>
+</tr>
+<tr>
+<td>rpoplpush list1  list2</td>
+<td align="left">在list1中执行rpop，然后将值送给list2的左侧</td>
+</tr>
+<tr>
+<td>lset list index value</td>
+<td align="left">把下标为index的值改为value</td>
+</tr>
+<tr>
+<td>linsert list before/after value1  value2</td>
+<td align="left">从左往右找到value1，在value1左/右添加一个value2</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h3 id="Set类型"><a href="#Set类型" class="headerlink" title="Set类型"></a>Set类型</h3><p>就是普通的set</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sadd myset value1 value2 …..</td>
+<td>在myset里添加值</td>
+</tr>
+<tr>
+<td>srem myset value</td>
+<td>将value从myset里移除</td>
+</tr>
+<tr>
+<td>smembers myset</td>
+<td>列出所有元素</td>
+</tr>
+<tr>
+<td>scard myset</td>
+<td>统计myset中元素个数</td>
+</tr>
+<tr>
+<td>srandmembers myset num</td>
+<td>从myset中随机获取num个元素</td>
+</tr>
+<tr>
+<td>spop myset num</td>
+<td>从myset中随机移除num个元素、</td>
+</tr>
+<tr>
+<td>sismembers myset value</td>
+<td>查询myset中是否含有value</td>
+</tr>
+<tr>
+<td>smove myset1 myset2 value</td>
+<td>将myset1中的value移动到myset2</td>
+</tr>
+<tr>
+<td>sdiff myset1 [ myset2 myset3… ]</td>
+<td>返回所有myset1中不在myset2 myset3…的并集中的元素</td>
+</tr>
+<tr>
+<td>sinter myset1 myset2 myset3</td>
+<td>返回所有集合的交集</td>
+</tr>
+<tr>
+<td>sunion myset1 myset2 myset3</td>
+<td>返回所有集合的并集</td>
+</tr>
+<tr>
+<td>sdiffstore set myset [myset1 myset2 …]</td>
+<td>返回所有myset1中不在myset2 myset3…的并集中的元素，放到set中</td>
+</tr>
+<tr>
+<td>同理，也有sinterstore、sunionstore</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="Hash类型"><a href="#Hash类型" class="headerlink" title="Hash类型"></a>Hash类型</h3><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hset myhash k1 v1 k2 v2</td>
+<td>创建一个名为myhash的map，里面有两个键值对</td>
+</tr>
+<tr>
+<td>hget myhash k1</td>
+<td>得到v1</td>
+</tr>
+<tr>
+<td>hmget myhash k1 k2</td>
+<td>得到v1 ，v2</td>
+</tr>
+<tr>
+<td>hdel myhash k1</td>
+<td>删除myhash中的k1-v1</td>
+</tr>
+<tr>
+<td>hgetall myhash</td>
+<td>得到所有键值对</td>
+</tr>
+<tr>
+<td>hkeys myhash</td>
+<td>得到所有key</td>
+</tr>
+<tr>
+<td>hvals myhash</td>
+<td>得到所有value</td>
+</tr>
+<tr>
+<td>hlen myhash</td>
+<td>得到集合大小</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="Zset类型"><a href="#Zset类型" class="headerlink" title="Zset类型"></a>Zset类型</h3><p>很像c++中的map，可以按key排序</p>
+<p>功能包括set</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>zadd zset 1 one 2 two…</td>
+<td>向zset中添加one、two，等级分别为1、2</td>
+</tr>
+<tr>
+<td>zcard zset</td>
+<td>统计大小</td>
+</tr>
+<tr>
+<td>zrangebyscore zset -inf +inf</td>
+<td>按等级从小到大排序并显示</td>
+</tr>
+<tr>
+<td>zrevrangebyscore zset +inf -inf</td>
+<td>从大到小</td>
+</tr>
+</tbody></table>
+<h3 id="Geospatial类型"><a href="#Geospatial类型" class="headerlink" title="Geospatial类型"></a>Geospatial类型</h3><p>坐标类型，有计算两点之间距离、查询周围坐标的作用</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>geoadd city 100 50 beijing</td>
+<td>添加城市北京，维度与经度为100、50</td>
+</tr>
+<tr>
+<td>geopos city beijing</td>
+<td>获得北京维经度</td>
+</tr>
+<tr>
+<td>geodist city beijing shanghai km/m</td>
+<td>获得北京与上海的直线距离</td>
+</tr>
+<tr>
+<td>georadius city 60 50 1000 km</td>
+<td>以（60,50）为中心获得1000km内的城市</td>
+</tr>
+<tr>
+<td>georadius city shanghai 1000 km +参数</td>
+<td>以上海为中心获得1000km内的城市</td>
+</tr>
+</tbody></table>
+<h3 id="Hyperloglog类型"><a href="#Hyperloglog类型" class="headerlink" title="Hyperloglog类型"></a>Hyperloglog类型</h3><p>该类型使用位来统计个数，2^64个数据，统计个数只需要占用12KB，但具有误差性，如果需要精确计算，需使用set</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pfadd hp 1 2 3 …</td>
+<td>在hp里添加1 2 3</td>
+</tr>
+<tr>
+<td>pfcount hp</td>
+<td>获取hp里数据的个数</td>
+</tr>
+<tr>
+<td>pfmerge hp hp1 hp2…</td>
+<td>将hp1,hp2..里的数据合并到hp里</td>
+</tr>
+</tbody></table>
+<h3 id="BitMap类型"><a href="#BitMap类型" class="headerlink" title="BitMap类型"></a>BitMap类型</h3><p>就是每一个数据只能是0或1，只占一个bit，类似bool类型</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>setbit sb 0 1</td>
+<td>将键值对0-1加入到sb中</td>
+</tr>
+<tr>
+<td>getbit sb 0</td>
+<td>得到sb中0对应的value</td>
+</tr>
+<tr>
+<td>bitcount sb</td>
+<td>计算sb中value值为1的个数</td>
+</tr>
+</tbody></table>
 
       
 
