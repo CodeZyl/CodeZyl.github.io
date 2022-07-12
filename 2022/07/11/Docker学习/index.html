@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>Docker学习 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/3/index.html">
+  <meta name="description" content="Docker入门狂神笔记：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_21197507&#x2F;article&#x2F;details&#x2F;115071715 ​                    https:&#x2F;&#x2F;blog.csdn.net&#x2F;THB66666&#x2F;article&#x2F;details&#x2F;120856359 Docker仓库：https:&#x2F;&#x2F;hub.docker.com&#x2F;search?q&#x3D;mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker学习">
+<meta property="og:url" content="http://example.com/2022/07/11/Docker%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Docker入门狂神笔记：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_21197507&#x2F;article&#x2F;details&#x2F;115071715 ​                    https:&#x2F;&#x2F;blog.csdn.net&#x2F;THB66666&#x2F;article&#x2F;details&#x2F;120856359 Docker仓库：https:&#x2F;&#x2F;hub.docker.com&#x2F;search?q&#x3D;mysql">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2NoZW5nY29kZXgvY2xvdWRpbWcvbWFzdGVyL2ltZy9pbWFnZS0yMDIwMDUxNTE1Mzg1Mjk1NC5wbmc?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2NoZW5nY29kZXgvY2xvdWRpbWcvbWFzdGVyL2ltZy9pbWFnZS0yMDIwMDUxNTEwNDExNzMyOS5wbmc?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2NoZW5nY29kZXgvY2xvdWRpbWcvbWFzdGVyL2ltZy9pbWFnZS0yMDIwMDUxNTEwMjYzNzI0Ni5wbmc?x-oss-process=image/format,png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020081215123458.png">
+<meta property="article:published_time" content="2022-07-11T02:34:20.000Z">
+<meta property="article:modified_time" content="2022-07-12T08:16:59.298Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2NoZW5nY29kZXgvY2xvdWRpbWcvbWFzdGVyL2ltZy9pbWFnZS0yMDIwMDUxNTE1Mzg1Mjk1NC5wbmc?x-oss-process=image/format,png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,35 +159,88 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Lambda表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Docker学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Lambda表达式</a>
+    <h1 class="article-title" itemprop="name">
+      Docker学习
     </h1>
   
 
         
-        <a href="/2022/03/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2022-03-17T06:46:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-17</time>
+        <a href="/2022/07/11/Docker%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2022-07-11T02:34:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Lambda表达式是在Java8之后引进的</p>
-<p>其对函数式接口的代码简化起到很大作用</p>
-        
-          <a class="article-more-a" href="/2022/03/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/#more">more >></a>
-        
+        <h2 id="Docker入门"><a href="#Docker入门" class="headerlink" title="Docker入门"></a>Docker入门</h2><p>狂神笔记：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_21197507/article/details/115071715">https://blog.csdn.net/qq_21197507/article/details/115071715</a></p>
+<p>​                    <a target="_blank" rel="noopener" href="https://blog.csdn.net/THB66666/article/details/120856359">https://blog.csdn.net/THB66666/article/details/120856359</a></p>
+<p>Docker仓库：<a target="_blank" rel="noopener" href="https://hub.docker.com/search?q=mysql">https://hub.docker.com/search?q=mysql</a></p>
+<span id="more"></span>
+
+<h3 id="虚拟机VSDocker"><a href="#虚拟机VSDocker" class="headerlink" title="虚拟机VSDocker"></a>虚拟机VSDocker</h3><h4 id="虚拟机："><a href="#虚拟机：" class="headerlink" title="虚拟机："></a>虚拟机：</h4><p>从本机中拿出一部分磁盘，虚拟出一个新的操作系统</p>
+<p>占用资源多；启动慢；</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2NoZW5nY29kZXgvY2xvdWRpbWcvbWFzdGVyL2ltZy9pbWFnZS0yMDIwMDUxNTE1Mzg1Mjk1NC5wbmc?x-oss-process=image/format,png" alt="img"></p>
+<h4 id="Docker："><a href="#Docker：" class="headerlink" title="Docker："></a>Docker：</h4><p>运行在我们本机的环境，并没有虚拟我们的硬件</p>
+<p>占用空间小；启动快；每个容器间互相隔离，都拥有自己的文件系统，互不影响</p>
+<p>运行在docker上的程序都是直接<strong>使用实际物理机的资源、CPU</strong>，并不像虚拟机用的是虚拟出来的硬件资源；</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2NoZW5nY29kZXgvY2xvdWRpbWcvbWFzdGVyL2ltZy9pbWFnZS0yMDIwMDUxNTEwNDExNzMyOS5wbmc?x-oss-process=image/format,png" alt="image-20200515104117329"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GuestOS:虚拟机里的系统</span><br><span class="line">HostOS:物理机里的系统</span><br></pre></td></tr></table></figure>
+
+
+
+<p>当我们创建一个docker时，使用的是物理机的操作系统，比虚拟机少了一层创建虚拟机系统，而创建虚拟机系统非常耗时间，通常要几分钟，而docker省略了它，所以创建一个docker容器是秒级的</p>
+<h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uname -r 查看Linux内核版本</span><br><span class="line">cat /etc/os-release 查看CentOs版本</span><br><span class="line"></span><br><span class="line">安装时一定注意我们使用的阿里云时CentOs8，所以在 执行 yum makecache fast 时会报错，此时去掉fast即可</span><br><span class="line">另外，安装时会报错Error: Unable to find a match: docker，此时参照博客https://blog.csdn.net/weixin_41725792/article/details/109679971</span><br></pre></td></tr></table></figure>
+
+<h3 id="执行docker-run-hello-world"><a href="#执行docker-run-hello-world" class="headerlink" title="执行docker run hello-world"></a>执行docker run hello-world</h3><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2NoZW5nY29kZXgvY2xvdWRpbWcvbWFzdGVyL2ltZy9pbWFnZS0yMDIwMDUxNTEwMjYzNzI0Ni5wbmc?x-oss-process=image/format,png" alt="image-20200515102637246"></p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker --help 帮助文档</span><br><span class="line">docker xxx --help 查看与xxx相关的帮助文档</span><br><span class="line">docker --version 查看版本</span><br><span class="line">docker images 查看已安装镜像</span><br><span class="line">docker info 查看系统信息</span><br><span class="line">docker search name 在网上仓库中搜索name相关的镜像</span><br><span class="line">docker pull xxx:version 从网上下载指定版本的xxx，如果不加:version，默认下载最新</span><br><span class="line">docker rmi name:version 删除镜像</span><br><span class="line">docker rmi id 以镜像id形式删除</span><br><span class="line">docker rmi $(docker images -aq) 后面是查找镜像然后返回id，外面按照id删除</span><br></pre></td></tr></table></figure>
+
+<h3 id="容器命令"><a href="#容器命令" class="headerlink" title="容器命令"></a>容器命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker run xxx 开启xxx容器，注意如果开启后，当前没有前台任务在该容器内执行，该容器就会被关闭</span><br><span class="line">docker run -it xxx /bin/bash 以交互式开启该容器，也就是说开启后进去该容器</span><br><span class="line">docker ps 查看当前正在运行的容器</span><br><span class="line">ctrl+p+q 退出该容器但不关闭</span><br><span class="line">exit 退出改容器并关闭</span><br><span class="line">docker run -d xxx 在后台运行-d，也就是不进容器</span><br><span class="line">docker run -d centos /bin/sh -c &quot;while true;do echo codezyl;sleep 1;done&quot;  在后台开启centos容器，并且在容器中运行脚本（脚本：每秒输出一次codezyl）</span><br><span class="line">docker logs xxx 查看xxx容器的日志</span><br><span class="line">docker logs -tf --tail number xxx 打印出最近的number条日志，加时间日期</span><br><span class="line">docker stop xxx 停止xxx容器，退出时会溜时间让应用程序保存数据，表现在我输入该命令，延时10s才会结束</span><br><span class="line">docker kill xxx 强制停止xxx容器，直接退出，不留时间</span><br><span class="line">docker top id 查看容器中进程</span><br><span class="line">docker inspect id 查看容器详细信息</span><br><span class="line">docker exec -i -t id /bin/bash 进入容器并且在容器中开启一个新的终端进程</span><br><span class="line">docker attach id 进入容器中的某个进程，不新开启进程，比如使用这两个命令进入上述的输出 codezyl 容器，exec会进去之后开启新终端，而attach会进入输出codezyl的死循环终端而出不来</span><br><span class="line">docker cp id:/home/xxx /usr   从容器/home中向物理机/usr目录中拷贝xxx文件 </span><br></pre></td></tr></table></figure>
+
+<h3 id="安装elasticsearch"><a href="#安装elasticsearch" class="headerlink" title="安装elasticsearch"></a>安装elasticsearch</h3><p>​    安装前在阿里云和Linux主机里开放9200、9300端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">启动</span><br><span class="line">docker run -d --name elasticsearch1 -p 9200:9200 -p 9300:9300 -e <span class="string">&quot;discovery.type=single-node&quot;</span> elasticsearch:7.6.2</span><br><span class="line"></span><br><span class="line">占用内存过大，所以可以启动并限制内存</span><br><span class="line">docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e <span class="string">&quot;discovery.type=single-node&quot;</span> -e ES_JAVA_OPTS=<span class="string">&quot;-Xms64m -Xmx512m&quot;</span> elasticsearch:7.6.2</span><br></pre></td></tr></table></figure>
+
+<p>​    查看elasticsearch占用内存：docker stats id</p>
+<h2 id="Docker进阶"><a href="#Docker进阶" class="headerlink" title="Docker进阶"></a>Docker进阶</h2><p>docker本质就是一层一层的文件系统，比如下载centos镜像有1,2,3三个文件，而下载mysql镜像有1,3,4，那么下载mysql和启动mysql就会使用原先下载的文件1,3，从而达到占用空间小，启动速度快</p>
+<p>当我们run一个镜像时，我们是在一个容器中操作的，并不会对原先的镜像文件产生什么影响，下图中，我们可以在容器层做我们的操作，然后和原生的镜像重新打包成一个新的镜像</p>
+<p><img src="https://img-blog.csdnimg.cn/2020081215123458.png" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="更改镜像并保存"><a href="#更改镜像并保存" class="headerlink" title="更改镜像并保存"></a>更改镜像并保存</h3><p>当我们用docker启动Tomcat时，发现访问8080后无资源，这是因为资源都在webapps.dist中，我们需要将其中的所有资源移动到webapps下，但我们不想每次启动Tomcat都进行这步操作，所以我们可以把操作后的Tomcat容器commit成一个新的镜像并保存在物理机中。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">启动Tomcat</span><br><span class="line">docker run -dp -p 8080:8080 --name tomcat1 tomcat</span><br><span class="line">以交互式进入Tomcat</span><br><span class="line">docker exec -it id /bin/bash</span><br><span class="line">将文件移动到webapps中</span><br><span class="line">cp webapps.dist/* webaspps</span><br><span class="line">退出Tomcat</span><br><span class="line">exit</span><br><span class="line">生成一个操作过的Tomcat镜像，名字为mytomcat，版本为1.01，作者为codezyl，附加信息为message，</span><br><span class="line">docker commit -a=&quot;codezyl&quot; -m=&quot;message&quot; 75b1d044c41a mytomcat:1.01</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ0jle7irh6z6qystpujekZ /]<span class="comment"># docker images</span></span><br><span class="line">REPOSITORY      TAG       IMAGE ID       CREATED         SIZE</span><br><span class="line">mytomcat        1.01      e06911ae15bc   5 seconds ago   487MB</span><br><span class="line">tomcat          latest    451d25ef4583   2 weeks ago     482MB</span><br><span class="line">hello-world     latest    feb5d9fea6a5   9 months ago    13.3kB</span><br><span class="line">centos          latest    5d0da3dc9764   9 months ago    231MB</span><br><span class="line">elasticsearch   7.6.2     f29a1ee41030   2 years ago     791MB</span><br></pre></td></tr></table></figure>
+
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -187,16 +249,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/07/11/Docker%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2022/07/06/Redis%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -216,597 +337,14 @@
 
 
 
-
-  
-    <article id="post-不同的子序列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/09/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/">不同的子序列</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/09/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2022-03-09T04:02:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>给定一个字符串 s 和一个字符串 t ，计算在 s 的子序列中 t 出现的个数。</p>
-        
-          <a class="article-more-a" href="/2022/03/09/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/09/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-链表删去所有重复元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/08/%E9%93%BE%E8%A1%A8%E5%88%A0%E5%8E%BB%E6%89%80%E6%9C%89%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/">链表删去所有重复元素</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/08/%E9%93%BE%E8%A1%A8%E5%88%A0%E5%8E%BB%E6%89%80%E6%9C%89%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/" class="archive-article-date">
-  	<time datetime="2022-03-08T10:10:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>给一个链表，去除所有重复元素，例如：1–&gt; 2 –&gt; 2 –&gt; 3 –&gt; 3 –&gt; 4，返回1 –&gt; 4。</p>
-        
-          <a class="article-more-a" href="/2022/03/08/%E9%93%BE%E8%A1%A8%E5%88%A0%E5%8E%BB%E6%89%80%E6%9C%89%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/08/%E9%93%BE%E8%A1%A8%E5%88%A0%E5%8E%BB%E6%89%80%E6%9C%89%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring5-事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/02/Spring5-%E4%BA%8B%E5%8A%A1/">Spring5-事务</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/02/Spring5-%E4%BA%8B%E5%8A%A1/" class="archive-article-date">
-  	<time datetime="2022-03-02T10:42:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="事务概念"><a href="#事务概念" class="headerlink" title="事务概念"></a>事务概念</h5><p>事务是数据库操作的最基本单位，是逻辑上的一组操作，要么全部成功，要么全部失败（只要有一个操作失败，那么整个事务就失败）</p>
-        
-          <a class="article-more-a" href="/2022/03/02/Spring5-%E4%BA%8B%E5%8A%A1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/02/Spring5-%E4%BA%8B%E5%8A%A1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring5-JdbcTemplate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/01/Spring5-JdbcTemplate/">Spring5-JdbcTemplate</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/01/Spring5-JdbcTemplate/" class="archive-article-date">
-  	<time datetime="2022-03-01T12:17:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h5><p>首先引入Jar包</p>
-        
-          <a class="article-more-a" href="/2022/03/01/Spring5-JdbcTemplate/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/01/Spring5-JdbcTemplate/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LeetCode周赛227" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/27/LeetCode%E5%91%A8%E8%B5%9B227/">LeetCode周赛227</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/27/LeetCode%E5%91%A8%E8%B5%9B227/" class="archive-article-date">
-  	<time datetime="2022-02-27T14:05:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>给你一个下标从 0 开始的二维整数数组 tires ，其中 tires[i] = [fi, ri] 表示第 i 种轮胎如果连续使用，第 x 圈需要耗时 fi * ri(x-1) 秒。</p>
-        
-          <a class="article-more-a" href="/2022/02/27/LeetCode%E5%91%A8%E8%B5%9B227/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/27/LeetCode%E5%91%A8%E8%B5%9B227/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring-AOP操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/27/Spring-AOP%E6%93%8D%E4%BD%9C/">Spring_AOP操作</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/27/Spring-AOP%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2022-02-27T12:11:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="AOP基本概念"><a href="#AOP基本概念" class="headerlink" title="AOP基本概念"></a>AOP基本概念</h6><p>不通过修改源代码的方式，可以对主干功能进行添加新功能；可以降低各业务之间的耦合度，提高开发效率。</p>
-        
-          <a class="article-more-a" href="/2022/02/27/Spring-AOP%E6%93%8D%E4%BD%9C/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/27/Spring-AOP%E6%93%8D%E4%BD%9C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Acwing1875" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/24/Acwing1875/">Acwing1875</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/24/Acwing1875/" class="archive-article-date">
-  	<time datetime="2022-01-24T14:15:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="贝茜的报复"><a href="#贝茜的报复" class="headerlink" title="贝茜的报复"></a>贝茜的报复</h1><p>农夫约翰和奶牛贝茜喜欢在业余时间互相出数学题。</p>
-        
-          <a class="article-more-a" href="/2022/01/24/Acwing1875/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/24/Acwing1875/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Leetcode盛最多的水" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/24/Leetcode%E7%9B%9B%E6%9C%80%E5%A4%9A%E7%9A%84%E6%B0%B4/">Leetcode盛最多的水</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/24/Leetcode%E7%9B%9B%E6%9C%80%E5%A4%9A%E7%9A%84%E6%B0%B4/" class="archive-article-date">
-  	<time datetime="2022-01-24T14:14:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="盛最多的水"><a href="#盛最多的水" class="headerlink" title="盛最多的水"></a>盛最多的水</h1><p>给你 n 个非负整数 a1，a2，…，an</p>
-        
-          <a class="article-more-a" href="/2022/01/24/Leetcode%E7%9B%9B%E6%9C%80%E5%A4%9A%E7%9A%84%E6%B0%B4/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/24/Leetcode%E7%9B%9B%E6%9C%80%E5%A4%9A%E7%9A%84%E6%B0%B4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Acwing1904" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/22/Acwing1904/">Acwing1904</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/22/Acwing1904/" class="archive-article-date">
-  	<time datetime="2022-01-22T13:08:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="奶牛慢跑"><a href="#奶牛慢跑" class="headerlink" title="奶牛慢跑"></a>奶牛慢跑</h1><p>奶牛们又出去锻炼蹄子去了！</p>
-        
-          <a class="article-more-a" href="/2022/01/22/Acwing1904/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/22/Acwing1904/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -829,8 +367,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
