@@ -16,7 +16,7 @@
 <meta property="og:description" content="报错-bash: ls: command not found输入：export PATH&#x3D;&#x2F;bin:&#x2F;usr&#x2F;bin:$PATH">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-06T00:55:35.000Z">
-<meta property="article:modified_time" content="2022-07-06T13:01:23.879Z">
+<meta property="article:modified_time" content="2022-07-24T08:09:50.721Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -176,6 +176,15 @@
       
         <h3 id="报错-bash-ls-command-not-found"><a href="#报错-bash-ls-command-not-found" class="headerlink" title="报错-bash: ls: command not found"></a>报错-bash: ls: command not found</h3><p>输入：export PATH=/bin:/usr/bin:$PATH</p>
 <span id="more"></span>
+
+<p>8.130.28.111各服务位置</p>
+<p>tomcat:root/www/server/tomcat</p>
+<p>redis:usr/local/bin</p>
+<h3 id="Linux查看端口占用"><a href="#Linux查看端口占用" class="headerlink" title="Linux查看端口占用"></a>Linux查看端口占用</h3><p>lsof  i: 8080</p>
+<p>杀掉占用端口的进程：kill -9 PID</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># 查看firewall服务状态</span><br><span class="line">systemctl status firewalld</span><br><span class="line"></span><br><span class="line"># 开启、重启、关闭、firewalld.service服务</span><br><span class="line"># 开启</span><br><span class="line">service firewalld start</span><br><span class="line"># 重启</span><br><span class="line">service firewalld restart</span><br><span class="line"># 关闭</span><br><span class="line">service firewalld stop</span><br><span class="line"></span><br><span class="line"># 查看防火墙规则</span><br><span class="line">firewall-cmd --list-all    # 查看全部信息</span><br><span class="line">firewall-cmd --list-ports  # 只看端口信息</span><br><span class="line"></span><br><span class="line"># 开启端口</span><br><span class="line">开端口命令：firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">重启防火墙：systemctl restart firewalld.service</span><br><span class="line"></span><br><span class="line">命令含义：</span><br><span class="line">--zone #作用域</span><br><span class="line">--add-port=80/tcp  #添加端口，格式为：端口/通讯协议</span><br><span class="line">--permanent   #永久生效，没有此参数重启后失效</span><br></pre></td></tr></table></figure>
+
+
       
 
       
